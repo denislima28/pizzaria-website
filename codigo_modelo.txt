@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!--Serve para deixar compatível com outros navegadores--> 
+    <title>Burger House - The best of the World!</title>
+    <style>
+        * {
+            box-sizing: border-box; /*Garante que ao adicionar o padding, o elemento escale para dentro, não para fora*/
+            font-family: 'Rockwell'; 
+            margin: 0;
+            /*Remove espaçamento do retangulo do menu navegador. Deixa-o colado nas margem.*/
+            padding: 0;
+            }
+
+        .topo {
+            width: 1366px;
+            height: 50px;
+            margin: 0 auto;
+            /*Centraliza o menu*/
+            background: brown;
+                }
+        /*A configuração poderia ter sido feita dentro da linha do header, mas, em caso de mudança, seria preciso mudar todas as páginas*/
+
+        .menu ul {
+            padding-top: 8px;
+            list-style-type: none;
+            /*tira o círculo que aparece antes de cada item da lista*/
+                }
+
+        .menu>ul li {       /*só vai na primeira camada de elementos. Como aqui só tem uma lista, apenas li poderia ser usado*/
+            margin: 0 75px 0 75px;          /*Ordem: acima, direita, abaixo, esquerda*/
+            display: inline;    /* Display inline coloca os elementos da lista na horizontal*/
+                    }
+
+        .menu a {
+            text-decoration: none;        /*Tira o sublinhado que aparece em palavras que levam a links*/
+            color: #ffffff;         /*deixa as letras na cor branca*/  
+            font-size: 24px;
+            transition: background-color 0.3s, box-shadow 0.3s; 
+            padding: 8px 50px 5px 50px  /*Espaço interno. Nesse caso, aumenta a área do link. Ela fica maior do que o espaço ocupado pelo texto*/
+                                         /*Ordem: acima, direita, abaixo, esquerda*/
+            /*background: blue; esse comando deixa o fundo atrás das letras (e apenas delas) azul */
+                }     
+
+        .menu a:hover {   /*pseudo classe*/
+            background-color: orange;  /*Serve para mudar a cor das letras e do fundo quando o mouse passa em cima delas.*/
+            box-shadow: 0px 3px 5px black;  /*ordem: eixo x, eixo y e tamanho*. Cria uma sombra atrás do espaço do link.*/
+                    }
+
+        .conteudo{    /*Centraliza no site o espaço ocupado pela imagem. Se a imagem for maior do que o espaço reservado, será preciso ajustar*/
+            width: 1366px;
+            height: auto;
+            margin: auto;
+                }
+
+        .banner{
+            width: 1366px;
+            height: 512px;
+            background: url('Imagens/burguer_banner_1.png');
+            background-size: cover;
+            background-position: center; /*centraliza a imagem no espaço ocupado pelo banner*/
+                } 
+        
+        .banner img{  /*centraliza o logo*/ 
+            margin: auto;
+            display: block;
+            margin-top: -10px; /*Sobe o logo e a imagem atrás dele, assim como a barra de cima.*/
+            transform: translateY(-32px);
+                }
+        h1 {font-size: 64px;
+            }
+        
+        h2 {font-size: 56px;
+            text-align: center;
+            }
+        
+        h3 {font-size: 40px;
+            }
+
+        h4 {font-size: 30px;
+            }
+        
+        h5 {font-size: 24px;
+            }
+        
+        h6 {font-size: 18px;
+            }
+        
+        /*Aplicando a mesma regra para vários seletores*/
+        h1, h2, h3, h4, h5, h6 {font-weight: 800;
+                                }
+
+        section{margin: 64px 0px;
+                }
+        
+        /*Seção: burgers*/
+        #burgers h2{
+                color:#B22021;
+                }
+
+        /*Estilizando o cardapio*/
+        #cardapioBurger{  
+                          margin: 72px auto 0px auto; /*Centraliza o cardápio*/
+                          width: 1040px;
+                        }
+        
+        #cardapioBurger .preco{   /*Dentro do cardapioBurger, existem elementos da classe preço*/
+                                color: red;
+                                font-size: 48px;
+                                font-weight: 800;
+                                margin-top: 32px;
+                                } /*Apenas elementos da classe preco dentro do cardapioBurger serão pintados de vermelho*/
+        
+        .cardapio-burger-item{
+                                background-color: #FF8B1E;
+                                display: inline-block; /*O inline comum não funciona nesse caso. Ele não serve para colocar os blocos lado a lado*/
+                                color: white; /*pinta as letras de branco*/
+                                height: 310px;
+                                width: 500px;
+                                padding: 15px;
+                             }
+        
+        .cardapio-burger-item h3 {
+            text-align: right;
+                                }
+        
+        .cardapio-imagem{
+                         display: inline-block;
+                          width: 220px;   /*Especifica o tamanho da imagem*/
+                        }
+        
+        .cardapio-imagem img{height: 120px;}
+
+        .cardapio-ingredientes{   
+                                display: inline-block;
+                                margin-left: 26px;
+                                font-size: 24px;
+                                } 
+        /*Cardapio de shakes*/
+
+        #shakes{
+            /*background-color: purple;  Pode ser usado durante a confecção do código para situar o programador*/
+            height: 330px;
+        }
+
+        #cardapioShakes{
+            margin: auto;
+            width: 960px;
+            }            /*Centraliza os quadrados verdes*/            
+
+        .cardapio-shakes-item{
+                 background-color: green;
+                 color: white;
+                 float: left; /*Isso em vários itens os coloca lado a lado*/
+                 margin-top: 72px; /*joga os quadrados verdes mais para baixo*/
+                 padding: 12px;
+                 text-align: center; /*O pai pede para os filhos alinhar a imagem. Não funciona se colocar direto na imagem*/
+                 width: 300px;       
+                            }
+        
+        .cardapio-shakes-item ~.cardapio-shakes-item{
+            margin-left: 12px;
+                                                } 
+        /*Aplica em todos, menos no primeiro elemento. Cria espaço entre os quadros verdes.*/
+            /*Ver ~ e sinal de mais, pois dão ações em outros lugares*/
+
+        #shakes h2{
+            color: #F2AD00;
+                             }  /*Muda a cor da palavra SHAKES*/
+
+        .cardapio-shakes-item h3{
+            font-size: 25px;
+                                }
+
+        .cardapio-shakes-item img {
+                    height: 110px;
+                    text-align: center;
+                                }
+
+        .cardapio-shakes-item p{
+            color: #F2AD00;
+            font-size: 24px;
+            text-align: left;
+        }        
+        
+
+        /*Margens, tamanhos e paddings -> ma-l é margem esquerda*/
+        .ma-l-p{margin-left: 26px;}
+        .ma-l-m{margin-left: 36px;}     
+        .ma-l-g{margin-left: 72px;}
+        
+        .ma-t-p{margin-top: 26px;}
+        .ma-t-m{margin-top: 36px;}     
+        .ma-t-g{margin-top: 72px;}     
+
+        /*Quebras -> as barras que separam as seções*/
+
+        .quebra .quadrado{  /*Esse quadrado é a barra*/
+            height: 16px;
+            background-color: black;
+            /*Como a div é display block por padrão, já pega a largura automaticamente*/
+        }
+
+        .quebra .circulo{   /*O círculo é um quadrado com bordas arredondadas*/
+            width: 64px;
+            height: 64px;
+            border-radius: 50%; /*Arredonda o quadrado até transformar em círculo*/
+            background-color: black;
+            margin: auto;
+            margin-top: -40px; /*Sobe a bola*/
+            /*Como a display é block, já pega a largura automaticamente*/
+        }
+
+        /*Um teste que pode ser feito: colocar várias bolas e quadrados embaixo daqui no código.*/
+        /*Se não der pau, é sinal de que estã bem feito.*/
+
+    </style>
+</head>
+
+    <body>
+        <div class="container">
+            <header class="topo">       <!--A class, ao contrario da id, pode ser reaproveitada. Class e id servem para identificar elementos-->
+                <nav class="menu">
+                    <ul>
+                        <li>
+                            <a href="index.html">HOME</a>   <!--Se o usuario clicar no texto, irá para o link ou página indicada.-->
+                        </li>
+                    
+                        <li>
+                            <a href="#">BURGERS</a>
+                        </li>
+                        <li>
+                            <a href="#">SHAKES</a>
+                        </li>
+                        <li>
+                            <a href="#">ONDE?</a>
+                        </li>
+                        <!--O target é exemplo de como abrir em outra guia 
+                        <li><a href="https:facebook.com.br" target="_blank">FACEBOOK</a></li>
+                        <li><a href="Imagens/burguer_1.png">Abrir Burger</a></li> -->
+
+                    </ul>
+                </nav>
+
+            </header>     <!--Fim topo.-->
+    
+
+            <main class="conteudo">
+
+                <div class="banner">
+                        <!--Tag de imagem. Nesse caso, a imagem não é apenas fundo. É parte do html.-->
+                    <img src="Imagens/logo.png" alt="Logotipo da empresa Burger House. É um desenho de hamburger com o texto Burgers Take away"> 
+                </div>  <!--Fim do banner-->
+
+                <div class="quebra"> 
+                    <div class="quadrado">
+
+                    </div>
+
+                    <div class="circulo">
+
+                    </div>
+
+                </div>
+                <!--Fim da quebra - a barra que separa-->
+
+                <section id="burgers">
+                    <h2>BURGERS</h2>
+                    <!--Cardapio burgers-->
+                    <div id="cardapioBurger"> <!--Todo o cardapio-->
+                        <div class="cardapio-linha"> <!--As linhas com dois quadrados-->
+                            <div class="cardapio-burger-item"> <!--Cada quadrado da linha-->
+                                <h3>FAT ONE</h3>
+                                    <div class="cardapio-imagem">
+                                        <img src="Imagens/burguer_1.png" alt="Hamburger de carne bovina">
+                                    </div>
+                                    <!--Fim bloco imagem-->
+                                    <div class="cardapio-ingredientes">
+                                        <li>Carne bovina</li>
+                                        <li>Alface</li>
+                                        <li>Tomate</li>
+                                        <li>Picles</li>
+                                    </div>
+                                    <!--Fim bloco ingredientes-->
+                                    <p class="preco">R$ 19,90</p> 
+                            </div>
+
+                            <div class="cardapio-burger-item ma-l-m"> 
+                                    <h3>FAT ONE</h3> 
+                                        <div class="cardapio-imagem">
+                                                <img src="Imagens/burguer_2.png" alt="Hamburger de carne bovina">
+                                        </div>
+                                            <!--Fim bloco imagem-->
+                                        <div class="cardapio-ingredientes">
+                                                <li>Carne bovina</li>
+                                                <li>Alface</li>
+                                                <li>Tomate</li>
+                                                <li>Picles</li>
+                                        </div>
+                                            <!--Fim bloco ingredientes-->
+                                        <p class="preco">R$ 19,90</p>                  
+                            </div>
+                              <!--Fim item da linha do cardapio-->
+                        </div>
+                            <!--Fim linha do cardapio--> 
+                        
+                        <div class="cardapio-linha ma-t-m"> <!--As linhas com dois quadrados-->
+                             <div class="cardapio-burger-item"> <!--Cada quadrado da linha-->
+                                <h3>FAT ONE</h3>
+                                    <div class="cardapio-imagem">
+                                            <img src="Imagens/burguer_3.png" alt="Hamburger de carne bovina">
+                                    </div>
+                                        <!--Fim bloco imagem-->
+                                    <div class="cardapio-ingredientes">
+                                            <li>Carne bovina</li>
+                                            <li>Alface</li>
+                                            <li>Tomate</li>
+                                            <li>Picles</li>
+                                    </div>
+                                        <!--Fim bloco ingredientes-->
+                                    <p class="preco">R$ 19,90</p>  
+                            </div>
+    
+                              <div class="cardapio-burger-item ma-l-m">                                
+                                    <h3>FAT ONE</h3>
+                                        <div class="cardapio-imagem">
+                                                <img src="Imagens/burguer_4.png" alt="Hamburger de carne bovina">
+                                        </div>
+                                            <!--Fim bloco imagem-->
+                                        <div class="cardapio-ingredientes">
+                                                <li>Carne bovina</li>
+                                                <li>Alface</li>
+                                                <li>Tomate</li>
+                                                <li>Picles</li>
+                                        </div>
+                                            <!--Fim bloco ingredientes-->
+                                        <p class="preco">R$ 19,90</p>  
+                                </div>
+                                <!--Fim item da linha do cardapio-->
+                        </div>
+                             <!--Fim linha do cardapio-->   
+                        
+                    </div>
+                         <!--Fim cardapio burgers-->
+                </section> 
+                
+                <div class="quebra"> 
+                        <div class="quadrado">
+    
+                        </div>
+    
+                        <div class="circulo">
+    
+                        </div>
+    
+                    </div>
+                
+                <section id="shakes">
+                    <h2>SHAKES</h2>
+                        <div id="cardapioShakes">
+                            <div class="cardapio-shakes-item">
+                                <h3>CHOCOLATE DREAM</h3>
+                                <img src="Imagens/shake_1.png" alt="Milkshake chocolate dream">
+                                <p class="preco">R$ 7,50</p>
+                            </div>
+                             <!--Fim do item cardapio-->
+                             <div class="cardapio-shakes-item">
+                                <h3>CHOCOLATE DREAM</h3>
+                                <img src="Imagens/shake_2.png" alt="Milkshake chocolate dream">
+                                <p class="preco">R$ 7,50</p>
+                            </div>
+                                 <!--Fim do item cardapio-->
+                            <div class="cardapio-shakes-item">
+                               <h3>CHOCOLATE DREAM</h3>
+                                    <img src="Imagens/shake_3.png" alt="Milkshake chocolate dream">
+                                    <p class="preco">R$ 7,50</p>
+                            </div>
+                                 <!--Fim do item cardapio-->
+                        </div>
+                         <!--Fim do cardapio-->   
+                </section>
+                <span style="clear: both; display: block;"></span> <!--Impede que o parágrafo abaixo flutue. O segura abaixo do quadrado verde-->
+                    <p>Ufa, alguém segurou</p>
+                    <!--Fim seção shakes-->  
+                
+                    <div class="quebra"> 
+                            <div class="quadrado">
+        
+                            </div>
+        
+                            <div class="circulo">
+        
+                            </div>
+        
+                    </div>
+
+            </main>
+        </div>
+        <!--Fim container-->
+    </body>
+</html>

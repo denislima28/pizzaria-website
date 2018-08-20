@@ -1,0 +1,313 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            /*Garante que ao adicionar o padding, o elemento escale para dentro, não para fora*/
+            margin: 0;
+            /*Remove espaçamento do retangulo do menu navegador. Deixa-o colado nas margens.*/
+            padding: 0;
+        }
+
+        .topo {
+            font-family: Castellar;
+            width: 1366px;
+            height: 93px;
+            margin: 0 auto;
+            /*Centraliza o menu*/
+            background: #850d23;   
+        }
+
+        .logo img {
+            margin: 0 0 0 20px;
+        }
+
+        .logo{
+            display: inline-block;  /*O inline não funciona aqui*/
+        }
+        
+        .menu{
+            display: inline-block; /*O inline não funciona aqui*/  
+        }
+
+        .menu ul{
+            position: relative;
+            top: -40px;
+        } /*As linhas de comando fazem as palavras subirem*/
+    
+        .menu>ul li {
+            display: inline; 
+            margin: 0px -55px 0px 60px; 
+        }
+       
+        #promo{
+            color: #f9ff0b;
+            font-size: 22px;
+        }
+
+        .contatos{
+            text-align: right;
+            display: inline-block;
+            margin-left: 100px;
+            position: relative;
+            top: -4px;
+        } /*As duas últimas linahs de comando fazem as palavras subirem*/
+      
+        #telefone{
+            color: white;
+            font-size: 29px;          
+        }
+
+        #email{
+            color: white;
+            font-size: 22px;
+            margin: 0 0 0 10px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            /*Tira o sublinhado que aparece em palavras que levam a links*/
+            color: #ffffff;
+            font-size: 26px;
+        }
+
+        .barraverde {
+            /*aplica as regras para a barra vede*/
+            height: 8px;
+            width: 1366px;
+            margin: 0 auto;
+            background-color: #095c47;
+        }
+
+        .conteudo {
+            /*Centraliza no site o espaço ocupado pela imagem. Se a imagem for maior do que o espaço reservado, será preciso ajustar*/
+            width: 1366px;
+            height: auto;
+            margin: auto;
+        }
+
+        .mar-escuro{
+            width: 1366px;
+            height: 297px;
+            background: url('Imagens/mar_escuro.png');
+            font-family: Rockwell;
+            color: #d5c7ff;
+            background-position: center; /*Centraliza a imagem no espaço reservado a ela*/     
+        }
+
+        .mapaitalia {
+            margin-top: -110px;
+            margin-right: 20px;
+            float: right; /*Desloca a imagem para a direita.*/
+            /*transform: translateY(-110px); /*A imagem é vista num ponto diferente de onde realmente está.*/
+        } 
+        
+        .mapaitalia img{
+            width: 149px;
+            height: 182px;
+        }
+
+        .piso-madeira{
+            font-family: Rockwell;
+            background: url('Imagens/madeira.png');
+            width: 1366px;
+            height: 343px;
+            text-align: center;
+        } /*Centraliza todas as palavras da seção Cardápio*/
+        
+        .palavrascardapio ul{
+            list-style-type: none;
+        }  
+        
+        .palavrascardapio a{
+            text-decoration: none;
+            /*Tira o sublinhado que aparece em palavras que levam a links*/
+            color: white;
+            font-size: 26px;
+        }    
+
+        h2{
+            font-size: 29px;
+            font-family: Castellar;
+        }
+
+        #historia h2{
+            color: #e8e1ff;
+        }
+
+        .margem-historia{
+            margin-left: 150px;
+        }
+
+        .margem-paragrafo{
+            margin-top: 40px;
+            margin-left: 8px;
+        }
+
+        #cardapio h2{
+            color:black;
+        }
+
+        .retangulo-cinza-esverdeado {
+            /*aplica as regras para a parte cinza esverdeada*/
+            height: 341px;
+            width: 1366px;
+            margin: 0 auto;
+            background-color: #000000;
+        }
+
+        
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header class="topo">
+            <!--A class, ao contrario da id, pode ser reaproveitada. Class e id servem para identificar elementos-->
+            <div class="logo">
+                <img src="Imagens/logo.png" alt="Logotipo da pizzaria Esperanza.">
+            </div>
+         
+                
+                <!--Se o usuario clicar no texto, irá para o link ou página indicada.-->
+    
+            <nav class="menu">                  
+                <ul>
+                    <li>
+                        <a href="#" id="promo">PROMOÇÃO</a>   <!--Necessário criar a ID, pois a palavra tem cor e fonte diferentes do resto.-->
+                    </li>
+                    
+                    <li>
+                        <a href="#">HOME</a>
+                    </li>
+
+                    <li>
+                        <a href="#">CARDAPIO</a>
+                    </li>
+
+                    <li>
+                        <a href="#">PEDIR </a>
+                    </li>
+
+                    <li>
+                        <a href="#">CONTATO</a>
+                    </li>
+
+                    <li>
+                        <a href="#">LOCAL</a>
+                    </li>
+
+                </ul>
+                
+                
+            </nav>
+
+            <div class="contatos">
+                    <p><a id="telefone">#99449 - 0707</a></p>
+                    <p><a id="email">SPEZAPZA@MAIL.COM.BR</a></p>
+            </div>
+
+        </header>
+        <!--Fim topo.-->
+
+        <main class="conteudo">
+
+            <div class="barraverde">
+                
+            </div>
+
+            <section id="historia">
+
+                <div class="mar-escuro">
+                        <div class="margem-historia">
+                            <h2>HISTÓRIA</h2>
+                        </div>
+
+                        <div class="margem-paragrafo">
+                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed</p>
+                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed</p>
+                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed</p>
+                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed</p>
+                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed</p>
+                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed</p>
+                            <p>Lorem ipsum dolor sit amet.</p>
+                        </div>     
+                        
+                        <div class="mapaitalia">
+                            <img src="Imagens/mapaitalia.png" alt="Logotipo da pizzaria Esperanza.">
+                        </div>
+                        
+
+                </div>
+
+               
+
+            </section>
+
+            <div class="barraverde">
+
+            </div>
+
+            <section id="cardapio">
+
+                <div class="piso-madeira">
+                     
+                    <h2>CARDÁPIO</h2>
+                      
+                    <nav class="palavrascardapio">
+                        <ul>
+                            <li>
+                                <a href="#">marguerita</a>
+                            </li>
+                            
+                            <li>
+                                <a href="#">abobrinha</a>
+                            </li>
+                            
+                            <li>
+                                <a href="#">veagatza</a>
+                            </li>
+                            
+                            <li>
+                                <a href="#">portuguesa</a>
+                            </li>
+                            
+                            <li>
+                                <a href="#">quatro queijos</a>
+                            </li>
+                            
+                            <li>
+                                <a href="#">frango catupiri</a>
+                            </li>
+                            
+                            <li>
+                                <a href="#">calabresa</a>
+                            </li>
+        
+                        </ul>
+                    
+                    </nav>
+
+                </div>
+
+            </section>
+
+            <div class="barraverde">
+
+            </div>
+
+            <!--<div class="retangulo-cinza-esverdeado"></div>-->
+
+        </main>
+    </div>
+</body>
+
+</html>
